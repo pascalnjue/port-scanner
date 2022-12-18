@@ -1,9 +1,16 @@
 package main
 
-var host = "localhost"
-var portsToScan = []int{80, 443, 22}
+import (
+	"github.com/pascalnjue/port-scanner/pkg/utils"
+	"log"
+	"os"
+)
 
 // main is the entry point for the application.
 func main() {
-	//	TODO: get ports and host from command line
+	// prompt the user for the host and ports to scan
+	host, portsToScan := utils.PromptForScannerOptions(os.Stdin)
+
+	log.Println("host:", host)
+	log.Println("ports to scan:", portsToScan)
 }
