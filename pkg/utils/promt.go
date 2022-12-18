@@ -24,7 +24,7 @@ func PromptForScannerOptions(device io.Reader) (string, []int) {
 		)
 		endPort := promptForInt(
 			reader,
-			"Enter the highest port or leave blank to scan only the lowest port (between 1 and 65535)"+
+			"Enter the highest port or leave blank to scan only the lowest port (between 1 and 65535)."+
 				"\nLeave blank to scan only one port:",
 			false,
 		)
@@ -62,7 +62,6 @@ func PromptForScannerOptions(device io.Reader) (string, []int) {
 		println("-----------------------------")
 	}
 
-	println("")
 	println("-----------------------------")
 	log.Println("host to scan:", host)
 	log.Println("number of ports to scan:", len(portsToScan))
@@ -116,7 +115,7 @@ func promptForInt(reader *bufio.Reader, promptText string, forceInput bool) int 
 func promptForString(reader *bufio.Reader, promptText string, forceInput bool) string {
 	var input string
 	for {
-		log.Println(promptText)
+		log.Print(promptText)
 
 		readString, err := reader.ReadString('\n')
 		if err != nil {
